@@ -8,21 +8,53 @@ public class Resorte : MonoBehaviour
     public float radius = 0.2f;
     public int coils = 6;
     public int segmentsPerCoil = 12;
-    [Range(0.1f, 5f)] public float compressionFactor = 2f; // Controla qué tan comprimido se ve
+    [Range(0.1f, 5f)] public float compressionFactor = 2f;
+    public float springConstant = 50f; // N/m
+    public float damping = 10f; // Damping for stability
+    public float restLength = 1f; // Rest length of spring
 
     private LineRenderer lineRenderer;
+    private SpringJoint springJoint;
 
     void Start()
     {
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        // Initialize LineRenderer
+        lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.material = springMaterial;
         lineRenderer.textureMode = LineTextureMode.Tile;
         lineRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         lineRenderer.receiveShadows = false;
         lineRenderer.widthMultiplier = radius * 2;
         lineRenderer.loop = false;
+
+        // Setup physics
+        SetupSpringJoint();
         UpdateSpringVisual();
     }
+
+    void SetupSpringJoint()
+{
+    Rigidbody startRb = startPoint.GetComponent<Rigidbody>();
+    if (!startRb) startRb = startPoint.gameObject.AddComponent<Rigidbody>();
+    startRb.isKinematic = true; // Fijo
+
+    Rigidbody endRb = endPoint.GetComponent<Rigidbody>();
+    if (!endRb) endRb = endPoint.gameObject.AddComponent<Rigidbody>();
+
+    springJoint = startPoint.gameObject.AddComponent<SpringJoint>();
+    springJoint.connectedBody = endRb;
+    springJoint.spring = springConstant; // fuerza de restitución
+    springJoint.damper = damping;        // amortiguamiento bajo (ej. 1-2)
+    springJoint.tolerance = restLength;  // longitud de equilibrio
+    springJoint.autoConfigureConnectedAnchor = false;
+    springJoint.anchor = Vector3.zero;
+    springJoint.connectedAnchor = Vector3.zero;
+
+    // Desactivar min/max para que se comporte como resorte real
+    springJoint.minDistance = 0f;
+    springJoint.maxDistance = 0f;
+}
+
 
     void Update()
     {
@@ -37,9 +69,7 @@ public class Resorte : MonoBehaviour
         Vector3 start = startPoint.position;
         Vector3 end = endPoint.position;
         Vector3 direction = (end - start).normalized;
-        float length = Vector3.Distance(start, end);
 
-        // Crear ejes perpendiculares
         Vector3 up = Vector3.Cross(direction, Vector3.right).normalized;
         if (up == Vector3.zero) up = Vector3.Cross(direction, Vector3.up).normalized;
         Vector3 right = Vector3.Cross(direction, up).normalized;
@@ -47,21 +77,13 @@ public class Resorte : MonoBehaviour
         for (int i = 0; i < totalSegments; i++)
         {
             float t = i / (float)(totalSegments - 1);
-
-            // Distribuir las vueltas comprimidas de manera uniforme
             float angle = t * coils * Mathf.PI * 2f * compressionFactor;
-
             Vector3 linearPos = Vector3.Lerp(start, end, t);
-
-            // Mantener radio constante en todo el resorte
-            Vector3 offset = up * Mathf.Sin(angle) * radius +
-                            right * Mathf.Cos(angle) * radius;
-
+            Vector3 offset = up * Mathf.Sin(angle) * radius + right * Mathf.Cos(angle) * radius;
             lineRenderer.SetPosition(i, linearPos + offset);
         }
 
-        // Ajustar la textura para que coincida con las bobinas
         lineRenderer.material.mainTextureScale = new Vector2(1, coils * 2);
-    }
 
+    }
 }

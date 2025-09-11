@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "589645983082",
+    "project_id": "laboratoriotesis2025",
+    "storage_bucket": "laboratoriotesis2025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589645983082:android:5de7ed9c718d04d69ec913",
+        "android_client_info": {
+          "package_name": "com.Unimet.LaboratorioTesis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFSxE85nvMY_TPE57lx9KS3HKMn-oHNag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,20 +4,28 @@ public class Resorte : MonoBehaviour
 {
     public Transform startPoint;
     public Transform endPoint;
+    [HideInInspector] public GameObject generatedEndPoint;
     public Material springMaterial;
     public float radius = 0.2f;
     public int coils = 6;
     public int segmentsPerCoil = 12;
     [Range(0.1f, 5f)] public float compressionFactor = 2f;
-    public float springConstant = 50f; // N/m
-    public float damping = 10f; // Damping for stability
-    public float restLength = 1f; // Rest length of spring
+    public float springConstant = 1f; // N/m
+    public float damping = 0.001f; // Damping for stability
+    public float restLength = 0.318f; // Rest length of spring
 
     private LineRenderer lineRenderer;
     private SpringJoint springJoint;
 
-    void Start()
+    void Awake()
     {
+        if (endPoint == null)
+        {
+            Debug.LogError("Debes asignar un endPoint en el inspector.");
+            return;
+        }
+        // endPoint.position = startPoint.position + (Vector3.down * restLength);
+
         // Initialize LineRenderer
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.material = springMaterial;
@@ -45,20 +53,19 @@ public class Resorte : MonoBehaviour
     springJoint.connectedBody = endRb;
     springJoint.spring = springConstant; // fuerza de restitución
     springJoint.damper = damping;        // amortiguamiento bajo (ej. 1-2)
-    springJoint.tolerance = restLength;  // longitud de equilibrio
     springJoint.autoConfigureConnectedAnchor = false;
     springJoint.anchor = Vector3.zero;
     springJoint.connectedAnchor = Vector3.zero;
 
-    // Desactivar min/max para que se comporte como resorte real
-    springJoint.minDistance = 0f;
-    springJoint.maxDistance = 0f;
+    springJoint.minDistance = restLength;
+    springJoint.maxDistance = restLength;
 }
 
 
-    void Update()
+    void FixedUpdate()
     {
         UpdateSpringVisual();
+        Debug.Log(startPoint.position - endPoint.position);
     }
 
     void UpdateSpringVisual()

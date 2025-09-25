@@ -5824,6 +5824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springJoint: {fileID: 0}
   selfRb: {fileID: 414779983}
+  objetivoOscilaciones: 40
 --- !u!114 &414779981
 MonoBehaviour:
   m_ObjectHideFlags: 0

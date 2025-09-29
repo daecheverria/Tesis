@@ -35,6 +35,7 @@ public class ManejadorPesas : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(selfRb.linearVelocity);
         if (midiendo)
         {
             float posY = selfRb.transform.position.y;

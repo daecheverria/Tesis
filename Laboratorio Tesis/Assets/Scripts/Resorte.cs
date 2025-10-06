@@ -65,9 +65,8 @@ public class Resorte : MonoBehaviour
     void FixedUpdate()
     {
         UpdateSpringVisual();
-        Debug.Log(startPoint.position - endPoint.position);
+        //Debug.Log(startPoint.position - endPoint.position);
     }
-
     void UpdateSpringVisual()
     {
         int totalSegments = coils * segmentsPerCoil + 1;

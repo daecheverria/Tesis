@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
 public class ManejadorPesas : MonoBehaviour
 {
     private XRSocketInteractor socket;
@@ -20,6 +24,10 @@ public class ManejadorPesas : MonoBehaviour
     private float tiempoUltimaOscilacion = 0f;
     private float sumaTiemposOscilaciones = 0f;
 
+    // Lista para guardar posiciones Y y tiempos
+    private List<float> posicionesY = new List<float>();
+    private List<float> tiemposOscilacion = new List<float>();
+
     void Start()
     {
         socket = GetComponent<XRSocketInteractor>();
@@ -35,6 +43,7 @@ public class ManejadorPesas : MonoBehaviour
 
     void Update()
     {
+        selfRb.WakeUp();
         //Debug.Log(selfRb.linearVelocity);
         if (midiendo)
         {
@@ -58,6 +67,9 @@ public class ManejadorPesas : MonoBehaviour
                     float tiempoOscilacion = tiempoActual - tiempoUltimaOscilacion;
                     sumaTiemposOscilaciones += tiempoOscilacion;
                     Debug.Log($"Oscilación {contadorOscilaciones} - Tiempo: {tiempoOscilacion:F4} segundos");
+                    // Guardar tiempo y posición Y
+                    tiemposOscilacion.Add(tiempoOscilacion);
+                    posicionesY.Add(posY);
                     tiempoUltimaOscilacion = tiempoActual;
                 }
                 contadorOscilaciones++;
@@ -65,6 +77,7 @@ public class ManejadorPesas : MonoBehaviour
                 {
                     Debug.Log($"Tiempo para {objetivoOscilaciones} oscilaciones (descartando la primera): {sumaTiemposOscilaciones:F4} segundos");
                     midiendo = false;
+                    ExportarCSV();
                 }
             }
             ultimaPosicionY = posY;
@@ -89,6 +102,8 @@ public class ManejadorPesas : MonoBehaviour
     ultimaPosicionY = selfRb.transform.position.y;
     bajando = false;
     midiendo = true;
+    posicionesY.Clear();
+    tiemposOscilacion.Clear();
     Debug.Log($"Iniciando medición de {objetivoOscilaciones} oscilaciones...");
     }
 
@@ -103,6 +118,23 @@ public class ManejadorPesas : MonoBehaviour
         {
             midiendo = false;
             Debug.Log("Medición de oscilaciones cancelada por soltar la pesa.");
+            ExportarCSV();
         }
+
+    }
+
+    // Exportar datos a CSV
+    private void ExportarCSV()
+    {
+        if (tiemposOscilacion.Count == 0 || posicionesY.Count == 0) return;
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("Oscilacion,Tiempo,PosicionY");
+        for (int i = 0; i < tiemposOscilacion.Count; i++)
+        {
+            sb.AppendLine($"{i+1},{tiemposOscilacion[i]},{posicionesY[i]}");
+        }
+        string filePath = Path.Combine(Application.persistentDataPath, "oscilaciones.csv");
+        File.WriteAllText(filePath, sb.ToString());
+        Debug.Log($"Datos exportados a CSV en: {filePath}");
     }
 }

@@ -12,7 +12,7 @@ public class ManejadorPesas : MonoBehaviour
     private XRSocketInteractor socket;
     public SpringJoint springJoint;
     public Rigidbody selfRb;
-    private float initialMass = 0.023f;
+    private float initialMass;
 
     // --- Añadidos para el contador y timer ---
     public int objetivoOscilaciones = 40; // Número de oscilaciones a medir
@@ -28,6 +28,14 @@ public class ManejadorPesas : MonoBehaviour
     private List<float> posicionesY = new List<float>();
     private List<float> tiemposOscilacion = new List<float>();
 
+    void Awake()
+    {
+        if (selfRb == null)
+        {
+            selfRb = GetComponent<Rigidbody>();
+        }
+        initialMass = selfRb.mass;
+    }
     void Start()
     {
         socket = GetComponent<XRSocketInteractor>();
@@ -131,7 +139,7 @@ public class ManejadorPesas : MonoBehaviour
         sb.AppendLine("Oscilacion,Tiempo,PosicionY");
         for (int i = 0; i < tiemposOscilacion.Count; i++)
         {
-            sb.AppendLine($"{i+1},{tiemposOscilacion[i]},{posicionesY[i]}");
+            sb.AppendLine($"{i+1};{tiemposOscilacion[i]};{posicionesY[i]}");
         }
         string filePath = Path.Combine(Application.persistentDataPath, "oscilaciones.csv");
         File.WriteAllText(filePath, sb.ToString());

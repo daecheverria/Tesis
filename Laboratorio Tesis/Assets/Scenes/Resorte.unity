@@ -5707,7 +5707,7 @@ MonoBehaviour:
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
-  m_StartingSelectedInteractable: {fileID: 0}
+  m_StartingSelectedInteractable: {fileID: 1398413372}
   m_StartingTargetFilter: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
@@ -5787,7 +5787,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414779978}
   serializedVersion: 4
-  m_Mass: 0.02
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7341,6 +7341,10 @@ PrefabInstance:
     - target: {fileID: 2218496723442559054, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       propertyPath: m_Name
       value: XR Origin Hands (XR Rig)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218496723442559054, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12908,8 +12912,9 @@ MonoBehaviour:
   coils: 12
   segmentsPerCoil: 42
   compressionFactor: 2.47
-  springConstant: 2
-  damping: 0.1
+  springConstant: 1.5
+  damping: 0
+  restLength: 0.3
 --- !u!4 &963072988
 Transform:
   m_ObjectHideFlags: 0
@@ -16916,6 +16921,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395654534}
   m_Mesh: {fileID: 4300000, guid: 318fc5659f68549feb9d55d15a12de2a, type: 3}
+--- !u!114 &1398413372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 831635186711090631, guid: e518b686edc15f845875a8c7241d5f8a, type: 3}
+  m_PrefabInstance: {fileID: 8068379999514764329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1399807710
 GameObject:
   m_ObjectHideFlags: 0
@@ -24551,7 +24567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3747008601180768337, guid: e518b686edc15f845875a8c7241d5f8a, type: 3}
       propertyPath: m_Mass
-      value: 0.05
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 3747008601180768337, guid: e518b686edc15f845875a8c7241d5f8a, type: 3}
       propertyPath: m_AngularDrag

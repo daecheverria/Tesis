@@ -12,7 +12,7 @@ public class Resorte : MonoBehaviour
     [Range(0.1f, 5f)] public float compressionFactor = 2f;
     public float springConstant = 1f; // N/m
     public float damping = 0.001f; // Damping for stability
-    //public float restLength = 0f; // Rest length of spring
+    public float restLength = 0.3f; // Rest length of spring
 
     private LineRenderer lineRenderer;
     private SpringJoint springJoint;
@@ -57,7 +57,7 @@ public class Resorte : MonoBehaviour
     springJoint.anchor = Vector3.zero;
     springJoint.connectedAnchor = Vector3.zero;
 
-    springJoint.minDistance = 0;
+    springJoint.minDistance = restLength;
     springJoint.maxDistance = 0;
 }
 
@@ -65,7 +65,7 @@ public class Resorte : MonoBehaviour
     void FixedUpdate()
     {
         UpdateSpringVisual();
-        //Debug.Log(startPoint.position - endPoint.position);
+        Debug.Log(startPoint.position - endPoint.position);
     }
     void UpdateSpringVisual()
     {

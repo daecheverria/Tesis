@@ -19,6 +19,11 @@ public class HundirBoton : MonoBehaviour
     public float angulo;
     public float umbralHundir = 0.01f;
     private bool eventoActivado = false;
+    public Collider colPesa;
+    public Collider colResorte;
+
+    public AudioClip sonidoHundido; // Asigna el clip desde el inspector
+    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +33,12 @@ public class HundirBoton : MonoBehaviour
         interactuable.hoverEntered.AddListener(Seguir);
         interactuable.hoverExited.AddListener(Reiniciar);
         interactuable.selectEntered.AddListener(Congelar);
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public void Seguir(BaseInteractionEventArgs args)
@@ -90,7 +101,16 @@ public class HundirBoton : MonoBehaviour
     }
     private void OnBotonHundido()
     {
-        // Intercambiar rb pesa
+        // Intercambiar el estado enabled de los Colliders
+            if (colPesa != null && colResorte != null)
+            {
+                colPesa.enabled = !colPesa.enabled;
+                colResorte.enabled = !colResorte.enabled;
+            }
+        if (sonidoHundido != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(sonidoHundido);
+        }
         Debug.Log("¡Botón hundido!");
     }
 }

@@ -13,7 +13,7 @@ public class ManejadorPesas : MonoBehaviour
     public SpringJoint springJoint;
     public Rigidbody selfRb;
     private float initialMass;
-
+    public bool pesaColgada = false;
     // --- Añadidos para el contador y timer ---
     public int objetivoOscilaciones = 40; // Número de oscilaciones a medir
     private int contadorOscilaciones = 0;
@@ -46,6 +46,7 @@ public class ManejadorPesas : MonoBehaviour
         if (springJoint != null)
         {
             springJoint.connectedBody = selfRb;
+             springJoint.maxDistance = 5f;
         }
     }
 
@@ -95,11 +96,8 @@ public class ManejadorPesas : MonoBehaviour
     private void OnPesaAttached(SelectEnterEventArgs args)
     {
         Rigidbody pesaRigidbody = args.interactableObject.transform.GetComponent<Rigidbody>();
-        Debug.Log("Pesa agarrada: " + pesaRigidbody.name);
-        Debug.Log(selfRb);
-        selfRb.mass = pesaRigidbody.mass + initialMass; // Suma la masa de la pesa a la del objeto con el socket
-        Debug.Log("Masa actual del objeto con socket: " + selfRb.mass);
-        Debug.Log("Masa de la pesa añadida: " + pesaRigidbody.mass);
+        pesaColgada = true;
+        selfRb.mass = pesaRigidbody.mass + initialMass;
         selfRb.WakeUp();
 
         // Iniciar medición de oscilaciones
@@ -119,7 +117,7 @@ public class ManejadorPesas : MonoBehaviour
     {
         selfRb.mass = initialMass; // Resta la masa de la pesa al objeto con el socket
         selfRb.WakeUp();
-        Debug.Log("Masa actual del objeto con socket: " + selfRb.mass);
+        pesaColgada = false;
 
         // Detener medición si estaba activa
         if (midiendo)

@@ -8,11 +8,11 @@ using System.Text;
 public class EnviarCorreo : MonoBehaviour
 {
     [Header("SMTP (Gmail)")]
-    public string smtpUser = "tu@gmail.com";               // correo remitente (tu cuenta)
-    public string smtpPassword = "APP_PASSWORD";           // usa App Password, no tu contraseña normal
-    public string smtpHost = "smtp.gmail.com";
-    public int smtpPort = 587;
-    public bool enableSsl = true;
+    private string smtpUser = "laboratoriovrunimet@gmail.com";               // correo remitente (tu cuenta)
+    private string smtpPassword = "usjfavbmcidtwjsh";           // usa App Password, no tu contraseña normal
+    private string smtpHost = "smtp.gmail.com";
+    private int smtpPort = 587;
+    private bool enableSsl = true;
 
     [Header("Opciones")]
     public bool debugLog = true;
@@ -88,10 +88,10 @@ public class EnviarCorreo : MonoBehaviour
 
         string subject = "Resultados Laboratorio Resorte Helicoidal";
         string body = new StringBuilder()
-            .AppendLine("Resultados:")
+            //.AppendLine("Resultados:")
             .Append("Tiempo oscilaciones: ")
             .AppendLine(tiemposStr)
-            .Append("Longitude: ")
+            .Append("Longitudes: ")
             .Append(distStr)
             .ToString();
 
@@ -99,8 +99,8 @@ public class EnviarCorreo : MonoBehaviour
     }
 
     // Método de ejemplo para pruebas desde el inspector
-    public void SendTestEmail()
+    void Start()
     {
-        SendEmail("destinatario@ejemplo.com", "Prueba desde Unity", "Este es un correo de prueba.");
+        SendResultsFromDatosSO();
     }
 }

@@ -24,5 +24,6 @@ public class Teclado : MonoBehaviour
         direccion.Normalize();
         Vector3 posicionTeclado = camara.position + direccion * distancia + Vector3.up * altura;
         NonNativeKeyboard.Instance.RepositionKeyboard(posicionTeclado);
+        print("Abriendo teclado");
     }
 }

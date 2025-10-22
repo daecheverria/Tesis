@@ -14,7 +14,7 @@ public class Resorte : MonoBehaviour
     public float damping = 0.001f; // Damping for stability
     public float minLength = 0.3f; // Rest length of spring
     public float maxLength = 2f;  // Maximum length of spring
-
+    public float[] aaaaa;
     private LineRenderer lineRenderer;
     private SpringJoint springJoint;
 
@@ -57,6 +57,7 @@ public class Resorte : MonoBehaviour
     springJoint.autoConfigureConnectedAnchor = false;
     springJoint.anchor = Vector3.zero;
     springJoint.connectedAnchor = Vector3.zero;
+    springJoint.enableCollision = true;
 
     springJoint.minDistance = minLength;
     springJoint.maxDistance = maxLength;
@@ -66,7 +67,7 @@ public class Resorte : MonoBehaviour
     void FixedUpdate()
     {
         UpdateSpringVisual();
-        Debug.Log(startPoint.position - endPoint.position);
+        //Debug.Log(startPoint.position - endPoint.position);
     }
     void UpdateSpringVisual()
     {

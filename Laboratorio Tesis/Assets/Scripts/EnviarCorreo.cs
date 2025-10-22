@@ -18,7 +18,7 @@ public class EnviarCorreo : MonoBehaviour
     public bool debugLog = true;
 
     // Referencia al ScriptableObject con los datos
-    public DatosSO datosSO;
+    public DatosSO2 datosSO;
 
     // Envía un correo simple en background. 'toAddress' es variable.
     public void SendEmail(string toAddress, string subject, string body, bool isHtml = false)
@@ -69,33 +69,33 @@ public class EnviarCorreo : MonoBehaviour
     {
         if (datosSO == null)
         {
-            Debug.LogError("EnviarCorreo: DatosSO no asignado.");
+            Debug.LogError("EnviarCorreo: DatosSO2 no asignado.");
             return;
         }
 
-        string to = datosSO.Correo;
+        string to = datosSO.correo;
         if (string.IsNullOrEmpty(to))
         {
-            Debug.LogError("EnviarCorreo: correo destinatario en DatosSO vacío.");
+            Debug.LogError("EnviarCorreo: correo destinatario en DatosSO2 vacío.");
             return;
         }
 
-        var tiempos = datosSO.Tiempos ?? new System.Collections.Generic.List<float>();
-        var distancias = datosSO.Distancias ?? new System.Collections.Generic.List<float>();
+        //var tiempos = datosSO.tiempos ?? new System.Collections.Generic.List<float>();
+        //var distancias = datosSO.distancias ?? new System.Collections.Generic.List<float>();
 
-        string tiemposStr = tiempos.Count > 0 ? string.Join(", ", tiempos) : "N/A";
-        string distStr = distancias.Count > 0 ? string.Join(", ", distancias) : "N/A";
+        //string tiemposStr = tiempos.Count > 0 ? string.Join(", ", tiempos) : "N/A";
+        //string distStr = distancias.Count > 0 ? string.Join(", ", distancias) : "N/A";
 
         string subject = "Resultados Laboratorio Resorte Helicoidal";
-        string body = new StringBuilder()
+        //string body = new StringBuilder()
             //.AppendLine("Resultados:")
-            .Append("Tiempo oscilaciones: ")
-            .AppendLine(tiemposStr)
-            .Append("Longitudes: ")
-            .Append(distStr)
-            .ToString();
+            //.Append("Tiempo oscilaciones: ")
+            //.AppendLine(tiemposStr)
+            //.Append("Longitudes: ")
+            //.Append(distStr)
+            //.ToString();
 
-        SendEmail(to, subject, body, false);
+        //SendEmail(to, subject, body, false);
     }
 
     // Método de ejemplo para pruebas desde el inspector

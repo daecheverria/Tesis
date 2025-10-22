@@ -27,6 +27,8 @@ public class UserRegister : MonoBehaviour
     private bool verificadorCorreo = false;
     private bool verificadorCedula = false;
 
+    public DatosSO2 datosSO;
+
 
     void Awake()
     {
@@ -135,6 +137,7 @@ public class UserRegister : MonoBehaviour
         if (verificadorNombre)
         {
             PlayerPrefs.SetString("name", _nombre.text);
+            if (datosSO != null) datosSO.nombre = _nombre.text;
         }
 
         verificadorCorreo = EsCorreoValidoUnimet(_correoUnimet.text);
@@ -142,12 +145,14 @@ public class UserRegister : MonoBehaviour
         {
             _correoUnimet.text = _correoUnimet.text.ToLower();
             PlayerPrefs.SetString("email", _correoUnimet.text);
+            if (datosSO != null) datosSO.correo = _correoUnimet.text;
         }
 
         verificadorCedula = EsCedulaValida(_cedula.text);
         if (verificadorCedula)
         {
             PlayerPrefs.SetString("cedula", _cedula.text);
+            if (datosSO != null) datosSO.cedula = _cedula.text;
         }
 
         // Guardado y botón

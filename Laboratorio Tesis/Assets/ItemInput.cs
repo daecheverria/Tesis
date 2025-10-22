@@ -1,11 +1,12 @@
 using System.Globalization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InputItem : MonoBehaviour
 {
-    public InputField inputField;
-    public DatosSO datosSO;
+    public TMP_InputField inputField;
+    public DatosSO2 datosSO;
     public int indiceEnLista;
     public string listaNombre;
 
@@ -27,11 +28,11 @@ public class InputItem : MonoBehaviour
 
         if (listaNombre == "tiempos")
         {
-            datosSO.SetTiempoAt(indiceEnLista, valor);
+            //datosSO.tiempos[indiceEnLista] = valor;
         }
         else if (listaNombre == "distancias")
         {
-            datosSO.SetDistanciaAt(indiceEnLista, valor);
+            //datosSO.distancias[indiceEnLista] = valor;
         }
     }
 

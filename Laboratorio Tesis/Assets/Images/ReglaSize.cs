@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Regla : MonoBehaviour
+public class ReglaSize : MonoBehaviour
 {
     [Header("Referencia al objeto que reduce el ancho")]
     [SerializeField] private Transform disminuirSize; // Objeto controlador (posición inicial esperada X=29)

@@ -80,22 +80,22 @@ public class EnviarCorreo : MonoBehaviour
             return;
         }
 
-        //var tiempos = datosSO.tiempos ?? new System.Collections.Generic.List<float>();
-        //var distancias = datosSO.distancias ?? new System.Collections.Generic.List<float>();
+        var tiempos = datosSO.tiempos ?? new System.Collections.Generic.List<float>();
+        var distancias = datosSO.distancias ?? new System.Collections.Generic.List<float>();
 
-        //string tiemposStr = tiempos.Count > 0 ? string.Join(", ", tiempos) : "N/A";
-        //string distStr = distancias.Count > 0 ? string.Join(", ", distancias) : "N/A";
+        string tiemposStr = tiempos.Count > 0 ? string.Join(", ", tiempos) : "N/A";
+        string distStr = distancias.Count > 0 ? string.Join(", ", distancias) : "N/A";
 
         string subject = "Resultados Laboratorio Resorte Helicoidal";
-        //string body = new StringBuilder()
-            //.AppendLine("Resultados:")
-            //.Append("Tiempo oscilaciones: ")
-            //.AppendLine(tiemposStr)
-            //.Append("Longitudes: ")
-            //.Append(distStr)
-            //.ToString();
+        string body = new StringBuilder()
+            .AppendLine("Resultados:")
+            .Append("Tiempo oscilaciones: ")
+            .AppendLine(tiemposStr)
+            .Append("Longitudes: ")
+            .Append(distStr)
+            .ToString();
 
-        //SendEmail(to, subject, body, false);
+        SendEmail(to, subject, body, false);
     }
 
     // Método de ejemplo para pruebas desde el inspector

@@ -28,11 +28,11 @@ public class InputItem : MonoBehaviour
 
         if (listaNombre == "tiempos")
         {
-            //datosSO.tiempos[indiceEnLista] = valor;
+            datosSO.tiempos[indiceEnLista] = valor;
         }
         else if (listaNombre == "distancias")
         {
-            //datosSO.distancias[indiceEnLista] = valor;
+            datosSO.distancias[indiceEnLista] = valor;
         }
     }
 

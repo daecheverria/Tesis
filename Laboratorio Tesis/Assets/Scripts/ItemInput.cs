@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,25 +15,74 @@ public class InputItem : MonoBehaviour
     {
         if (inputField != null)
         {
-            inputField.onEndEdit.AddListener(delegate { OnValueChanged(inputField.text); });
+            // Añadir listener directamente (firma compatible)
+            inputField.onValueChanged.AddListener(OnValueChanged);
+            inputField.onSelect.AddListener(OnSelect);
+            if (listaNombre == "Tiempos")
+            {
+                if (datosSO.tiempos != null) inputField.text = datosSO.tiempos[indiceEnLista].ToString(CultureInfo.InvariantCulture);
+
+            }
+            else if (listaNombre == "Distancias")
+            {
+                if (datosSO.distancias != null) inputField.text = datosSO.distancias[indiceEnLista].ToString(CultureInfo.InvariantCulture);
+
+            }
+            //Debug.Log($"InputItem: Listener añadido a '{inputField.name}' para lista '{listaNombre}' índice {indiceEnLista}");
+        }
+        else
+        {
+            Debug.LogWarning("InputItem: inputField no está asignado en el inspector.");
         }
     }
 
-    // Función llamada cuando el InputField termina de editarse
+    //private void OnSelect(string texto)
+    //{
+    //    //Debug.Log($"InputItem: OnSelect llamado con '{texto}'");
+    //    inputField.text = "";
+    //}
     private void OnValueChanged(string texto)
     {
-        if (datosSO == null) return;
-        if (indiceEnLista < 0) return;
+        Debug.Log($"InputItem: OnValueChanged llamado con '{texto}'");
+
+        if (datosSO == null)
+        {
+            Debug.LogWarning("InputItem: datosSO no asignado.");
+            return;
+        }
+        if (indiceEnLista < 0)
+        {
+            Debug.LogWarning("InputItem: indiceEnLista es negativo.");
+            return;
+        }
 
         float valor = ParseFloatOrZero(texto);
+        //Debug.Log($"InputItem: Valor convertido a float: {valor}");
 
-        if (listaNombre == "tiempos")
+        try
         {
-            datosSO.tiempos[indiceEnLista] = valor;
+            if (listaNombre == "Tiempos")
+            {
+                if (datosSO.tiempos == null) datosSO.tiempos = new List<float>();
+                EnsureListSize(datosSO.tiempos, indiceEnLista + 1, 0f);
+                datosSO.tiempos[indiceEnLista] = valor;
+                //Debug.Log($"InputItem: Tiempos[{indiceEnLista}] = {valor}");
+            }
+            else if (listaNombre == "Distancias")
+            {
+                if (datosSO.distancias == null) datosSO.distancias = new List<float>();
+                EnsureListSize(datosSO.distancias, indiceEnLista + 1, 0f);
+                datosSO.distancias[indiceEnLista] = valor;
+                //Debug.Log($"InputItem: Distancias[{indiceEnLista}] = {valor}");
+            }
+            else
+            {
+                Debug.LogWarning($"InputItem: listaNombre '{listaNombre}' no reconocida. Usa 'Tiempos' o 'Distancias'.");
+            }
         }
-        else if (listaNombre == "distancias")
+        catch (System.Exception ex)
         {
-            datosSO.distancias[indiceEnLista] = valor;
+            Debug.LogError($"InputItem: Excepción al actualizar la lista: {ex}");
         }
     }
 
@@ -42,13 +92,18 @@ public class InputItem : MonoBehaviour
         if (string.IsNullOrWhiteSpace(texto)) return 0f;
 
         // Intentar con InvariantCulture (punto decimal)
-        if (float.TryParse(texto, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float resultado))
+        if (float.TryParse(texto, System.Globalization.NumberStyles.Float | System.Globalization.NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float resultado))
             return resultado;
 
         // Intentar con la cultura actual (coma o punto según configuración)
-        if (float.TryParse(texto, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out resultado))
+        if (float.TryParse(texto, System.Globalization.NumberStyles.Float | System.Globalization.NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out resultado))
             return resultado;
-
+        inputField.text = "0";
         return 0f;
+    }
+
+    private void EnsureListSize<T>(List<T> list, int size, T defaultValue)
+    {
+        while (list.Count < size) list.Add(defaultValue);
     }
 }

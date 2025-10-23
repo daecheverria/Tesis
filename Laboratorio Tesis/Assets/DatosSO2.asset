@@ -13,7 +13,25 @@ MonoBehaviour:
   m_Name: DatosSO2
   m_EditorClassIdentifier: 
   nombre: 
-  correo: 
+  correo: danieldaed@gmail.com
   cedula: gdrfgr
   tiempos:
   - 0
+  - 0
+  - 0
+  - 45
+  - 0
+  - 6
+  - 0
+  - 4
+  - 0
+  distancias:
+  - 5.88
+  - 0
+  - 999
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 589

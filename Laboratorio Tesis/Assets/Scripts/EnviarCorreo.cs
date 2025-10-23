@@ -97,10 +97,4 @@ public class EnviarCorreo : MonoBehaviour
 
         SendEmail(to, subject, body, false);
     }
-
-    // Método de ejemplo para pruebas desde el inspector
-    void Start()
-    {
-        SendResultsFromDatosSO();
-    }
 }

@@ -107,7 +107,7 @@ public class ManejadorPesas : MonoBehaviour
     sumaTiemposOscilaciones = 0f;
     ultimaPosicionY = selfRb.transform.position.y;
     bajando = false;
-    midiendo = true;
+    //midiendo = true;
     posicionesY.Clear();
     tiemposOscilacion.Clear();
     Debug.Log($"Iniciando medición de {objetivoOscilaciones} oscilaciones...");

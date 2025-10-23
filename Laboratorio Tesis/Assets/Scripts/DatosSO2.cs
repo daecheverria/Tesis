@@ -8,6 +8,6 @@ public class DatosSO2: ScriptableObject
     [SerializeField] public string nombre;
     [SerializeField] public string correo;
     [SerializeField] public string cedula;
-    [SerializeField] public float[] tiempos;
+    [SerializeField] public List<float> tiempos;
     [SerializeField] public List<float> distancias;
 }

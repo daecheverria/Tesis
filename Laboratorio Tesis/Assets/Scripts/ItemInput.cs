@@ -17,7 +17,7 @@ public class InputItem : MonoBehaviour
         {
             // Añadir listener directamente (firma compatible)
             inputField.onValueChanged.AddListener(OnValueChanged);
-            inputField.onSelect.AddListener(OnSelect);
+            //inputField.onSelect.AddListener(OnSelect);
             if (listaNombre == "Tiempos")
             {
                 if (datosSO.tiempos != null) inputField.text = datosSO.tiempos[indiceEnLista].ToString(CultureInfo.InvariantCulture);

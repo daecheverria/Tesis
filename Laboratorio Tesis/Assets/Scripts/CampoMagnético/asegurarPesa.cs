@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class asegurarPesa : MonoBehaviour
@@ -6,15 +7,15 @@ public class asegurarPesa : MonoBehaviour
     public Collider colResorte;
     public ManejadorPesas manejadorPesas; // Referencia al manejador
 
-    public void Cambiar()
+    public void Asegurar()
     {
-        if (manejadorPesas != null && manejadorPesas.pesaColgada)
-        {
-            if (colPesa != null && colResorte != null)
-            {
-                colPesa.enabled = !colPesa.enabled;
-                colResorte.enabled = !colResorte.enabled;
-            }
-        }
+        colPesa.enabled = false;
+        colResorte.enabled = true;
     }
+    public void Desasegurar()
+    {
+        colPesa.enabled = true;
+        colResorte.enabled = false;
+    }
+
 }

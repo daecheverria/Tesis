@@ -14,7 +14,6 @@ public class Resorte : MonoBehaviour
     public float damping = 0.001f; // Damping for stability
     public float minLength = 0.3f; // Rest length of spring
     public float maxLength = 2f;  // Maximum length of spring
-    public float[] aaaaa;
     private LineRenderer lineRenderer;
     private SpringJoint springJoint;
 

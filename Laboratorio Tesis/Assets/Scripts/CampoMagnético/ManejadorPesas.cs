@@ -99,9 +99,11 @@ public class ManejadorPesas : MonoBehaviour
         pesaColgada = true;
         selfRb.mass = pesaRigidbody.mass + initialMass;
         selfRb.WakeUp();
+        asegurarPesa asegurar = GetComponent<asegurarPesa>();
+        asegurar.Asegurar();
 
         // Iniciar medición de oscilaciones
-    contadorOscilaciones = 0;
+        contadorOscilaciones = 0;
     tiempoInicio = Time.time;
     tiempoUltimaOscilacion = tiempoInicio;
     sumaTiemposOscilaciones = 0f;
@@ -118,6 +120,7 @@ public class ManejadorPesas : MonoBehaviour
         selfRb.mass = initialMass; // Resta la masa de la pesa al objeto con el socket
         selfRb.WakeUp();
         pesaColgada = false;
+        
 
         // Detener medición si estaba activa
         if (midiendo)

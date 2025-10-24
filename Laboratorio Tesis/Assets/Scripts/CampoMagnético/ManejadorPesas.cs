@@ -14,6 +14,9 @@ public class ManejadorPesas : MonoBehaviour
     public Rigidbody selfRb;
     private float initialMass;
     public bool pesaColgada = false;
+    public DatosSO2 datosSO2; // referencia al ScriptableObject donde guardar teóricos
+    public Resorte resorte;
+
     // --- Añadidos para el contador y timer ---
     public int objetivoOscilaciones = 40; // Número de oscilaciones a medir
     private int contadorOscilaciones = 0;
@@ -43,11 +46,11 @@ public class ManejadorPesas : MonoBehaviour
         socket.selectExited.AddListener(OnPesaDetached);
         selfRb.sleepThreshold = 0.0f;
 
-        if (springJoint != null)
-        {
-            springJoint.connectedBody = selfRb;
-             springJoint.maxDistance = 5f;
-        }
+        //if (springJoint != null)
+        //{
+        //    springJoint.connectedBody = selfRb;
+        //    springJoint.maxDistance = 5f;
+        //}
     }
 
     void Update()
@@ -86,7 +89,7 @@ public class ManejadorPesas : MonoBehaviour
                 {
                     Debug.Log($"Tiempo para {objetivoOscilaciones} oscilaciones (descartando la primera): {sumaTiemposOscilaciones:F4} segundos");
                     midiendo = false;
-                    ExportarCSV();
+                    //ExportarCSV();
                 }
             }
             ultimaPosicionY = posY;
@@ -102,17 +105,57 @@ public class ManejadorPesas : MonoBehaviour
         asegurarPesa asegurar = GetComponent<asegurarPesa>();
         asegurar.Asegurar();
 
+        // --- CÁLCULO TEÓRICO Y MAPEO ---
+        // Mapear masa de la pesa (kg) a índice según múltiplos de 5 g:
+        // 5g -> índice 0, 10g -> 1, 15g -> 2, ... (se admite hasta 50g por defecto)
+        if (datosSO2 != null)
+        {
+            float k = resorte.springConstant;
+            float m = selfRb.mass; // masa usada en el sistema (kg)
+            if (k > 0f && m > 0f)
+            {
+                // gravedad positiva
+                float g = Mathf.Abs(Physics.gravity.y);
+
+                // calcular periodo teórico T = 2π * sqrt(m / k)
+                // (nota: la fórmula correcta del periodo para masa-resorte es T = 2π sqrt(m/k))
+                float periodoTeorico = 2f * Mathf.PI * Mathf.Sqrt(m / k);
+
+                // estiramiento teórico x = m * g / k
+                float estiramientoTeorico = m * g / k;
+
+                // convertir masa de la pesa (no selfRb) a gramos y redondear al múltiplo de 5 más cercano
+                int grams = Mathf.RoundToInt(pesaRigidbody.mass * 1000f);
+                int rounded = Mathf.Clamp(Mathf.RoundToInt(grams / 5f) * 5, 5, 50); // 5..50
+                int index = (rounded / 5) - 1; // 5->0, 10->1, ..., 50->9
+
+                // Asegurar tamaño de listas en datosSO2
+                EnsureListSize(datosSO2.tiemposTeoricos, index + 1, 0f);
+                EnsureListSize(datosSO2.distanciasTeoricas, index + 1, 0f);
+
+                datosSO2.tiemposTeoricos[index] = periodoTeorico;
+                datosSO2.distanciasTeoricas[index] = estiramientoTeorico;
+
+                Debug.Log($"ManejadorPesas: masa pesa={pesaRigidbody.mass}kg ({grams}g) -> rounded {rounded}g -> index {index}");
+                Debug.Log($"ManejadorPesas: periodoTeorico={periodoTeorico:F4}s, estiramientoTeorico={estiramientoTeorico:F4}m guardados en DatosSO2");
+            }
+            else
+            {
+                Debug.LogWarning("ManejadorPesas: springJoint.spring o masa inválida para cálculo teórico.");
+            }
+        }
+
         // Iniciar medición de oscilaciones
         contadorOscilaciones = 0;
-    tiempoInicio = Time.time;
-    tiempoUltimaOscilacion = tiempoInicio;
-    sumaTiemposOscilaciones = 0f;
-    ultimaPosicionY = selfRb.transform.position.y;
-    bajando = false;
-    //midiendo = true;
-    posicionesY.Clear();
-    tiemposOscilacion.Clear();
-    Debug.Log($"Iniciando medición de {objetivoOscilaciones} oscilaciones...");
+        tiempoInicio = Time.time;
+        tiempoUltimaOscilacion = tiempoInicio;
+        sumaTiemposOscilaciones = 0f;
+        ultimaPosicionY = selfRb.transform.position.y;
+        bajando = false;
+        midiendo = true;
+        posicionesY.Clear();
+        tiemposOscilacion.Clear();
+        Debug.Log($"Iniciando medición de {objetivoOscilaciones} oscilaciones...");
     }
 
     private void OnPesaDetached(SelectExitEventArgs args)
@@ -120,14 +163,13 @@ public class ManejadorPesas : MonoBehaviour
         selfRb.mass = initialMass; // Resta la masa de la pesa al objeto con el socket
         selfRb.WakeUp();
         pesaColgada = false;
-        
 
         // Detener medición si estaba activa
         if (midiendo)
         {
             midiendo = false;
             Debug.Log("Medición de oscilaciones cancelada por soltar la pesa.");
-            ExportarCSV();
+            //ExportarCSV();
         }
 
     }
@@ -145,5 +187,10 @@ public class ManejadorPesas : MonoBehaviour
         string filePath = Path.Combine(Application.persistentDataPath, "oscilaciones.csv");
         File.WriteAllText(filePath, sb.ToString());
         Debug.Log($"Datos exportados a CSV en: {filePath}");
+    }
+
+    private void EnsureListSize(List<float> list, int size, float defaultValue)
+    {
+        while (list.Count < size) list.Add(defaultValue);
     }
 }

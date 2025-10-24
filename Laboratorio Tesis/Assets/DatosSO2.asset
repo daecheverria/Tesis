@@ -12,26 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900d3d3a44375704790c5f6d6315a0af, type: 3}
   m_Name: DatosSO2
   m_EditorClassIdentifier: 
-  nombre: 
-  correo: danieldaed@gmail.com
-  cedula: gdrfgr
+  nombre: Augusto
+  correo: sisiruca.augusto@correo.unimet.edu.ve
+  cedula: 2994565
   tiempos:
   - 0
   - 0
   - 0
-  - 45
   - 0
-  - 6
   - 0
-  - 4
+  - 0
+  - 0
+  - 0
   - 0
   distancias:
-  - 5.88
-  - 0
-  - 999
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 589
+  - 0
+  - 0
+  - 0
+  - 0

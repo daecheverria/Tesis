@@ -49,4 +49,9 @@ public class CambioEscena : MonoBehaviour
 
         Debug.Log($"CambioEscena: cargando escena '{escenaObjetivo}' (trigger por '{other.name}').");
     }
+
+    public void CambiarScenaPorFuncion()
+    {
+        SceneManager.LoadScene(escenaObjetivo);
+    }
 }

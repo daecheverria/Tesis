@@ -89,9 +89,9 @@ public class EnviarCorreo : MonoBehaviour
         string subject = "Resultados Laboratorio Resorte Helicoidal";
         string body = new StringBuilder()
             .AppendLine("Resultados:")
-            .Append("Tiempo oscilaciones: ")
+            .Append("Tiempo oscilaciones (s): ")
             .AppendLine(tiemposStr)
-            .Append("Longitudes: ")
+            .Append("Estiramientos (cm): ")
             .Append(distStr)
             .ToString();
 

@@ -1913,6 +1913,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 908488543626083590, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_Mass
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1507829747165652652, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_Name
       value: Pesa10
@@ -2128,7 +2132,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: cd3c0fbf06d55ea48940621b5b6189e8, type: 2}
     - target: {fileID: 6095951493526921707, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: objetivoOscilaciones
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6163476847390341635, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_Height
@@ -2237,6 +2241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colResorte: {fileID: 694133882}
   manejadorPesas: {fileID: 694133881}
+  socket: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,6 +3150,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 908488543626083590, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_Mass
+      value: 0.015
+      objectReference: {fileID: 0}
     - target: {fileID: 1507829747165652652, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_Name
       value: Pesa15
@@ -116123,6 +116132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 908488543626083590, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_Mass
+      value: 0.005
+      objectReference: {fileID: 0}
     - target: {fileID: 1507829747165652652, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_Name
       value: Pesa5

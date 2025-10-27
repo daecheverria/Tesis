@@ -1301,7 +1301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 589295804362285628, guid: cba2ec13a51951049bbc3960421e7d69, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1190867572265606661, guid: cba2ec13a51951049bbc3960421e7d69, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1729,6 +1729,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 455886416005080019, guid: 76471e0d6a7552240a970951a8ec1484, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350091117075116684, guid: 76471e0d6a7552240a970951a8ec1484, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3988724396092915585, guid: 76471e0d6a7552240a970951a8ec1484, type: 3}
@@ -1969,6 +1973,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 10g
       objectReference: {fileID: 0}
+    - target: {fileID: 6974433033656262984, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1988,7 +1996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1420223374555588811, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 2
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1613847937476377076, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2032,7 +2040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5065752264785252688, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_Mass
-      value: 0.04
+      value: 0.045
       objectReference: {fileID: 0}
     - target: {fileID: 5424832633598701338, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
@@ -2156,7 +2164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8775168679398608070, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 2
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8775168679398608070, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
@@ -2227,7 +2235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff3b1890be6cf9438689babaed75130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colPesa: {fileID: 694133883}
   colResorte: {fileID: 694133882}
   manejadorPesas: {fileID: 694133881}
 --- !u!1 &705507993
@@ -3197,6 +3204,10 @@ PrefabInstance:
     - target: {fileID: 6945175402701185615, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_text
       value: 15g
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974433033656262984, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14329,7 +14340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &456544260385768024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -116159,6 +116170,10 @@ PrefabInstance:
     - target: {fileID: 6945175402701185615, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_text
       value: 5g
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974433033656262984, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

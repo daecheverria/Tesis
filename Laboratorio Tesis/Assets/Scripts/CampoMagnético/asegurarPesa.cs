@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class asegurarPesa : MonoBehaviour
 {
-    public Collider colPesa;
+    private Collider colPesa;
     public Collider colResorte;
     public ManejadorPesas manejadorPesas; // Referencia al manejador
 
-    public void Asegurar()
+    public void Asegurar(Collider colPesa)
     {
         colPesa.enabled = false;
         colResorte.enabled = true;
     }
     public void Desasegurar()
     {
+        colPesa = manejadorPesas.pesaCol;
         colPesa.enabled = true;
         colResorte.enabled = false;
     }

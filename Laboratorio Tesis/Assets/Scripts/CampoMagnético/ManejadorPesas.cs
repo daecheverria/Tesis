@@ -30,6 +30,7 @@ public class ManejadorPesas : MonoBehaviour
     // Lista para guardar posiciones Y y tiempos
     private List<float> posicionesY = new List<float>();
     private List<float> tiemposOscilacion = new List<float>();
+    public Collider pesaCol;
 
     void Awake()
     {
@@ -100,11 +101,12 @@ public class ManejadorPesas : MonoBehaviour
     private void OnPesaAttached(SelectEnterEventArgs args)
     {
         Rigidbody pesaRigidbody = args.interactableObject.transform.GetComponent<Rigidbody>();
+        pesaCol = args.interactableObject.transform.GetComponent<Collider>();
         pesaColgada = true;
         selfRb.mass = pesaRigidbody.mass + initialMass;
         selfRb.WakeUp();
         asegurarPesa asegurar = GetComponent<asegurarPesa>();
-        asegurar.Asegurar();
+        asegurar.Asegurar(pesaCol);
 
         // --- CÁLCULO TEÓRICO Y MAPEO ---
         // Mapear masa de la pesa (kg) a índice según múltiplos de 5 g:

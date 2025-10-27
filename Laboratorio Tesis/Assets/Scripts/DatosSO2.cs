@@ -9,8 +9,8 @@ public class DatosSO2: ScriptableObject
     [SerializeField] public string correo;
     [SerializeField] public string cedula;
     [SerializeField] public List<float> tiempos;
-    [SerializeField] public List<float> distancias;
+    [SerializeField] public List<float> estiramientos;
     [SerializeField] public float k;
     [SerializeField] public List<float> tiemposTeoricos;
-    [SerializeField] public List<float> distanciasTeoricas;
+    [SerializeField] public List<float> estiramientosTeoricos;
 }

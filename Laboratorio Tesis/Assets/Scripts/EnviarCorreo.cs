@@ -4,12 +4,13 @@ using System.Net.Mail;
 using System.Threading;
 using System;
 using System.Text;
+using TMPro;
 
 public class EnviarCorreo : MonoBehaviour
 {
     [Header("SMTP (Gmail)")]
-    private string smtpUser = "laboratoriovrunimet@gmail.com";               // correo remitente (tu cuenta)
-    private string smtpPassword = "usjfavbmcidtwjsh";           // usa App Password, no tu contraseña normal
+    private string smtpUser = "laboratoriovrunimet@gmail.com";        // correo remitente (tu cuenta)
+    private string smtpPassword = "usjfavbmcidtwjsh";  // usa App Password, no tu contraseña normal
     private string smtpHost = "smtp.gmail.com";
     private int smtpPort = 587;
     private bool enableSsl = true;
@@ -19,8 +20,46 @@ public class EnviarCorreo : MonoBehaviour
 
     // Referencia al ScriptableObject con los datos
     public DatosSO2 datosSO;
-
+    public datosBD datosBD;
     // Envía un correo simple en background. 'toAddress' es variable.
+    public TextMeshProUGUI estatusText;
+
+    // --- NUEVAS VARIABLES PARA COMUNICACIÓN ENTRE HILOS ---
+    // Usamos 'volatile' para asegurar que el valor sea leído correctamente desde ambos hilos.
+    private volatile string _statusMessage = null;
+    private volatile bool _isError = false;
+    // ----------------------------------------------------
+
+    public void Start()
+    {
+        //SendResultsFromDatosSO();
+    }
+
+    // --- NUEVO MÉTODO UPDATE ---
+    // Update() se ejecuta en el HILO PRINCIPAL
+    void Update()
+    {
+        // Si hay un mensaje nuevo del hilo secundario...
+        if (_statusMessage != null)
+        {
+            string message = _statusMessage;
+            _statusMessage = null; // "Consumimos" el mensaje
+
+            // Ahora es SEGURO actualizar la UI y usar Debug.Log
+            if (_isError)
+            {
+                Debug.LogError(message);
+                estatusText.text = "Fallo al enviar el correo. Intente nuevamente.";
+            }
+            else
+            {
+                if (debugLog) Debug.Log(message);
+                estatusText.text = "Correo enviado con exito. Recuerde revisar su carpeta de spam";
+            }
+        }
+    }
+
+    // --- MÉTODO SendEmail MODIFICADO ---
     public void SendEmail(string toAddress, string subject, string body, bool isHtml = false)
     {
         if (string.IsNullOrEmpty(toAddress))
@@ -35,8 +74,12 @@ public class EnviarCorreo : MonoBehaviour
             return;
         }
 
+        // Esta parte se ejecuta en el hilo principal
+        estatusText.text = "Enviando correo..."; // Informa al usuario que se está procesando
+
         ThreadPool.QueueUserWorkItem(_ =>
         {
+            // Este bloque se ejecuta en el HILO SECUNDARIO
             try
             {
                 using (var mail = new MailMessage())
@@ -54,12 +97,17 @@ public class EnviarCorreo : MonoBehaviour
                         client.Send(mail);
                     }
                 }
-
-                if (debugLog) Debug.Log($"EnviarCorreo: email enviado a {toAddress}");
+                
+                // --- NO ACCEDAS A LA UI AQUÍ ---
+                // En lugar de eso, guarda el resultado
+                _isError = false;
+                _statusMessage = $"EnviarCorreo: email enviado a {toAddress}";
             }
             catch (Exception ex)
             {
-                Debug.LogError($"EnviarCorreo: fallo al enviar email: {ex.Message}");
+                // --- NO ACCEDAS A LA UI AQUÍ ---
+                _isError = true;
+                _statusMessage = $"EnviarCorreo: fallo al enviar email: {ex.Message}";
             }
         });
     }
@@ -81,7 +129,7 @@ public class EnviarCorreo : MonoBehaviour
         }
 
         var tiempos = datosSO.tiempos ?? new System.Collections.Generic.List<float>();
-        var distancias = datosSO.distancias ?? new System.Collections.Generic.List<float>();
+        var distancias = datosSO.estiramientos ?? new System.Collections.Generic.List<float>();
 
         string tiemposStr = tiempos.Count > 0 ? string.Join(", ", tiempos) : "N/A";
         string distStr = distancias.Count > 0 ? string.Join(", ", distancias) : "N/A";
@@ -96,5 +144,6 @@ public class EnviarCorreo : MonoBehaviour
             .ToString();
 
         SendEmail(to, subject, body, false);
+        datosBD.EnviarDatos();
     }
 }

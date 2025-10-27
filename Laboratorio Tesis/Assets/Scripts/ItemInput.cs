@@ -25,7 +25,7 @@ public class InputItem : MonoBehaviour
             }
             else if (listaNombre == "Distancias")
             {
-                if (datosSO.distancias != null) inputField.text = datosSO.distancias[indiceEnLista].ToString(CultureInfo.InvariantCulture);
+                if (datosSO.estiramientos != null) inputField.text = datosSO.estiramientos[indiceEnLista].ToString(CultureInfo.InvariantCulture);
 
             }
             //Debug.Log($"InputItem: Listener añadido a '{inputField.name}' para lista '{listaNombre}' índice {indiceEnLista}");
@@ -70,10 +70,10 @@ public class InputItem : MonoBehaviour
             }
             else if (listaNombre == "Distancias")
             {
-                if (datosSO.distancias == null) datosSO.distancias = new List<float>();
-                EnsureListSize(datosSO.distancias, indiceEnLista + 1, 0f);
-                datosSO.distancias[indiceEnLista] = valor;
-                //Debug.Log($"InputItem: Distancias[{indiceEnLista}] = {valor}");
+                if (datosSO.estiramientos == null) datosSO.estiramientos = new List<float>();
+                EnsureListSize(datosSO.estiramientos, indiceEnLista + 1, 0f);
+                datosSO.estiramientos[indiceEnLista] = valor;
+                //Debug.Log($"InputItem: Estiramientos[{indiceEnLista}] = {valor}");
             }
             else
             {

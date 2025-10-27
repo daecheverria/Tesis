@@ -10,7 +10,7 @@ public class Resorte : MonoBehaviour
     public int coils = 6;
     public int segmentsPerCoil = 12;
     [Range(0.1f, 5f)] public float compressionFactor = 2f;
-    public float springConstant = 1f; // N/m
+    public float springConstant; // N/m
     public float damping = 0.001f; // Damping for stability
     public float minLength = 0f; // Rest length of spring
     public float maxLength = 0f;  // Maximum length of spring
@@ -27,6 +27,9 @@ public class Resorte : MonoBehaviour
 
     void Awake()
     {
+        springConstant = Random.Range(0.8f, 1.2f);
+        Debug.Log($"Resorte: springConstant asignado = {springConstant:F3}");
+
         if (endPoint == null)
         {
             Debug.LogError("Debes asignar un endPoint en el inspector.");

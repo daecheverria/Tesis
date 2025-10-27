@@ -37,6 +37,7 @@ public class ManejadorPesas : MonoBehaviour
         {
             selfRb = GetComponent<Rigidbody>();
         }
+        selfRb.mass = UnityEngine.Random.Range(0.008f, 0.012f);
         initialMass = selfRb.mass;
     }
     void Start()
@@ -131,13 +132,13 @@ public class ManejadorPesas : MonoBehaviour
 
                 // Asegurar tamaño de listas en datosSO2
                 EnsureListSize(datosSO2.tiemposTeoricos, index + 1, 0f);
-                EnsureListSize(datosSO2.distanciasTeoricas, index + 1, 0f);
+                EnsureListSize(datosSO2.estiramientosTeoricos, index + 1, 0f);
 
                 datosSO2.tiemposTeoricos[index] = periodoTeorico;
-                datosSO2.distanciasTeoricas[index] = estiramientoTeorico;
+                datosSO2.estiramientosTeoricos[index] = estiramientoTeorico;
 
-                Debug.Log($"ManejadorPesas: masa pesa={pesaRigidbody.mass}kg ({grams}g) -> rounded {rounded}g -> index {index}");
-                Debug.Log($"ManejadorPesas: periodoTeorico={periodoTeorico:F4}s, estiramientoTeorico={estiramientoTeorico:F4}m guardados en DatosSO2");
+                // Debug.Log($"ManejadorPesas: masa pesa={pesaRigidbody.mass}kg ({grams}g) -> rounded {rounded}g -> index {index}");
+                // Debug.Log($"ManejadorPesas: periodoTeorico={periodoTeorico:F4}s, estiramientoTeorico={estiramientoTeorico:F4}m guardados en DatosSO2");
             }
             else
             {
@@ -152,10 +153,10 @@ public class ManejadorPesas : MonoBehaviour
         sumaTiemposOscilaciones = 0f;
         ultimaPosicionY = selfRb.transform.position.y;
         bajando = false;
-        midiendo = true;
+        // midiendo = true;
         posicionesY.Clear();
         tiemposOscilacion.Clear();
-        Debug.Log($"Iniciando medición de {objetivoOscilaciones} oscilaciones...");
+        // Debug.Log($"Iniciando medición de {objetivoOscilaciones} oscilaciones...");
     }
 
     private void OnPesaDetached(SelectExitEventArgs args)

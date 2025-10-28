@@ -12,34 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900d3d3a44375704790c5f6d6315a0af, type: 3}
   m_Name: DatosSO2
   m_EditorClassIdentifier: 
-  nombre: Prueba
+  nombre: Jose Hurtado
   correo: decheverria@correo.unimet.edu.ve
-  cedula: 23821231
+  cedula: 6423534
   tiempos:
   - 0
-  - 0
-  - 0
-  - 0
+  - 19.19
+  - 16.06
+  - 21.12
   - 0
   - 0
   - 0
   - 0
   - 0
   estiramientos:
+  - 63
+  - 63
+  - 63
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  k: 0.9351363
+  - 9
+  - 334
+  k: 0.94160444
   tiemposTeoricos:
-  - 0
-  - 0
-  - 0
+  - 0.8027165
+  - 0.9407217
+  - 1.0609245
   - 0
   - 0
   - 0
@@ -47,9 +48,9 @@ MonoBehaviour:
   - 1.4697412
   - 0
   estiramientosTeoricos:
-  - 0
-  - 0
-  - 0
+  - 0.1601156
+  - 0.21990322
+  - 0.27969086
   - 0
   - 0
   - 0

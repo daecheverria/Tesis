@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DatosSO2
   m_EditorClassIdentifier: 
   nombre: Jose Hurtado
-  correo: jose.hurtado@correo.unimet.edu.ve
-  cedula: 29686758
+  correo: decheverria@correo.unimet.edu.ve
+  cedula: 6423534
   tiempos:
   - 0
   - 19.19
@@ -34,8 +34,9 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  k: 0.9508194
+  - 9
+  - 334
+  k: 0.94160444
   tiemposTeoricos:
   - 0.8027165
   - 0.9407217

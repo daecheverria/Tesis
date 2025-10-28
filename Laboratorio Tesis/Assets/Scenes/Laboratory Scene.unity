@@ -2661,6 +2661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pesa10
       objectReference: {fileID: 0}
+    - target: {fileID: 2723312236329852252, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0541
+      objectReference: {fileID: 0}
     - target: {fileID: 4465663356093013477, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0580201
@@ -2735,12 +2739,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1407802648356416263, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407802648356416263, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_TagString
       value: Pesa
       objectReference: {fileID: 0}
     - target: {fileID: 1420223374555588811, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420223374555588811, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
+      propertyPath: m_StartingSelectedInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1613847937476377076, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2981,7 +2993,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colResorte: {fileID: 694133882}
   manejadorPesas: {fileID: 694133881}
-  socket: {fileID: 0}
+  socket: {fileID: 694133898}
+--- !u!114 &694133898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1420223374555588811, guid: ce95151ed6b5a294ba429b4e18eb409e, type: 3}
+  m_PrefabInstance: {fileID: 694133879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82647474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,6 +4136,10 @@ PrefabInstance:
     - target: {fileID: 1507829747165652652, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_Name
       value: Pesa15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723312236329852252, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.054
       objectReference: {fileID: 0}
     - target: {fileID: 4465663356093013477, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_LocalScale.x
@@ -117503,6 +117530,10 @@ PrefabInstance:
     - target: {fileID: 1507829747165652652, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_Name
       value: Pesa5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723312236329852252, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0542
       objectReference: {fileID: 0}
     - target: {fileID: 4465663356093013477, guid: 6f0ee149e3261c443a0bc4fe5c2e7053, type: 3}
       propertyPath: m_LocalPosition.x

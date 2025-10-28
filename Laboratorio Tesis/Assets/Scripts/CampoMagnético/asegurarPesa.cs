@@ -19,7 +19,7 @@ public class asegurarPesa : MonoBehaviour
         colPesa = manejadorPesas.pesaCol;
         colPesa.enabled = true;
         colResorte.enabled = false;
-        StartCoroutine(TemporarilyDisableSocket(0.2f));
+        StartCoroutine(TemporarilyDisableSocket(2f));
         
     }
     private IEnumerator TemporarilyDisableSocket(float delay)

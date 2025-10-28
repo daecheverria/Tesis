@@ -31,6 +31,12 @@ public class ManejadorPesas : MonoBehaviour
     private List<float> posicionesY = new List<float>();
     private List<float> tiemposOscilacion = new List<float>();
     public Collider pesaCol;
+    // --- LineRenderer para la línea horizontal ---
+    public LineRenderer lineRenderer;
+    [Tooltip("Longitud desde el origen hacia cada lado (m). Ej: 0.5 = 0.5m a la izquierda y 0.5m a la derecha)")]
+    public float halfLength = 0.5f;
+    public Material lineMaterial;
+    public float lineWidth = 0.01f;
 
     void Awake()
     {
@@ -48,11 +54,34 @@ public class ManejadorPesas : MonoBehaviour
         socket.selectExited.AddListener(OnPesaDetached);
         selfRb.sleepThreshold = 0.0f;
 
+        SetupLineRenderer();
+
         //if (springJoint != null)
         //{
         //    springJoint.connectedBody = selfRb;
         //    springJoint.maxDistance = 5f;
         //}
+    }
+     private void SetupLineRenderer()
+    {
+        if (lineRenderer == null)
+        {
+            lineRenderer = GetComponent<LineRenderer>();
+            if (lineRenderer == null) lineRenderer = gameObject.AddComponent<LineRenderer>();
+        }
+
+        lineRenderer.useWorldSpace = false; 
+        lineRenderer.positionCount = 2;
+        Vector3 left = new Vector3(-halfLength, 0f, 0f);
+        Vector3 right = new Vector3(halfLength, 0f, 0f);
+        lineRenderer.SetPosition(0, left);
+        lineRenderer.SetPosition(1, right);
+        lineRenderer.widthMultiplier = lineWidth;
+
+        if (lineMaterial != null)
+        {
+            lineRenderer.material = lineMaterial;
+        }
     }
 
     void Update()

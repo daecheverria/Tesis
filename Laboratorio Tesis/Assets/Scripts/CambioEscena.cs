@@ -52,6 +52,8 @@ public class CambioEscena : MonoBehaviour
 
     public void CambiarScenaPorFuncion()
     {
-        SceneManager.LoadScene(escenaObjetivo);
+        // Cargar la scena numero 4
+        SceneManager.LoadScene(4);
+
     }
 }

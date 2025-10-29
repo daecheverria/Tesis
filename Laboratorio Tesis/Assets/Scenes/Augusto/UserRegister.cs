@@ -21,6 +21,7 @@ public class UserRegister : MonoBehaviour
 
     private static readonly Regex caracteresPermitidos = new Regex("^[a-zA-ZÒ—0-9 .,!?]+$");
     private static readonly Regex acentosPermitidos = new Regex("^[a-zA-ZÒ—·ÈÌÛ˙¡…Õ”⁄ ]+$");
+    private static readonly Regex emailLocalRegex = new Regex("^[A-Za-z0-9._%+-]+$");
 
     // Verificadores
     private bool verificadorNombre = false;
@@ -37,13 +38,13 @@ public class UserRegister : MonoBehaviour
 
     void Update()
     {
-        botonIniciarSesion.interactable = verificadorNombre && verificadorCorreo && verificadorCedula;
+       // botonIniciarSesion.interactable = verificadorNombre && verificadorCorreo && verificadorCedula;
     }
 
 
     public void LimpiarDatos()
     {
-        botonIniciarSesion.interactable = false;
+        //botonIniciarSesion.interactable = false;
         _nombre.text = string.Empty;
         _correoUnimet.text = string.Empty;
         _cedula.text = string.Empty;
@@ -51,28 +52,57 @@ public class UserRegister : MonoBehaviour
 
     public void CapturarNombre()
     {
+        print("Nombre capturado: " + _nombre.text);
         ValidarTodo();
     }
 
 
     public void CapturarCorreoUnimet()
     {
+        print("Correo Unimet capturado: " + _correoUnimet.text);
         _correoUnimet.text = _correoUnimet.text.ToLower();
         ValidarTodo();
     }
 
     public void CapturarCedula()
     {
+        print("Cedula capturada: " + _cedula.text);
         ValidarTodo();
     }
 
     public bool EsCorreoValidoUnimet(string valor)
     {
-        if (string.IsNullOrWhiteSpace(valor) || (!valor.Contains("@correo.unimet.edu.ve") && !valor.Contains("@unimet.edu.ve")))
+        // Normalizar
+        if (string.IsNullOrWhiteSpace(valor))
         {
             errorCorreoUnimet.SetActive(true);
             return false;
         }
+
+        string correo = valor.Trim().ToLower();
+
+        // Debe contener una @ y algo antes y despuÈs
+        int atIndex = correo.LastIndexOf('@');
+        if (atIndex <= 0 || atIndex >= correo.Length - 1)
+        {
+            errorCorreoUnimet.SetActive(true);
+            return false;
+        }
+
+        string dominio = correo.Substring(atIndex);
+        if (dominio != "@correo.unimet.edu.ve" && dominio != "@unimet.edu.ve")
+        {
+            errorCorreoUnimet.SetActive(true);
+            return false;
+        }
+
+        string parteLocal = correo.Substring(0, atIndex);
+        if (!emailLocalRegex.IsMatch(parteLocal))
+        {
+            errorCorreoUnimet.SetActive(true);
+            return false;
+        }
+
         errorCorreoUnimet.SetActive(false);
         return true;
     }

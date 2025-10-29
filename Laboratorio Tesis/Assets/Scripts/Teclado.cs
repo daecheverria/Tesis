@@ -25,10 +25,10 @@ public class Teclado : MonoBehaviour
         direccion.Normalize();
         Vector3 posicionTeclado = camara.position + direccion * distancia + Vector3.up * altura;
         string escenaActual = SceneManager.GetActiveScene().name;
-        if (escenaActual == "Laboratory Scene")
-        {
-            NonNativeKeyboard.Instance.ShowSymbolKeyboard();
-        }
+        //if (escenaActual == "Laboratory Scene")
+        //{
+        //    NonNativeKeyboard.Instance.ShowSymbolKeyboard();
+        //}
         NonNativeKeyboard.Instance.RepositionKeyboard(posicionTeclado);
         print("Abriendo teclado");
     }

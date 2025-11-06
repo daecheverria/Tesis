@@ -13475,13 +13475,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 761666618667318532, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
+      propertyPath: m_fontSize
+      value: 42.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 761666618667318532, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: abc909e2766aaf5409b99a5a9b443e3a, type: 2}
+    - target: {fileID: 761666618667318532, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5932811503762062064, guid: abc909e2766aaf5409b99a5a9b443e3a, type: 2}
+    - target: {fileID: 761666618667318532, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1555814120586544820, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
       propertyPath: m_text
       value: "Entorno de Interacci\xF3n con las Tesis de Realidad Virtual"
       objectReference: {fileID: 0}
     - target: {fileID: 1555814120586544820, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 18.25
       objectReference: {fileID: 0}
     - target: {fileID: 1555814120586544820, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
       propertyPath: m_margin.x
@@ -13490,6 +13506,18 @@ PrefabInstance:
     - target: {fileID: 1555814120586544820, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
       propertyPath: m_margin.z
       value: -31.53704
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555814120586544820, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: abc909e2766aaf5409b99a5a9b443e3a, type: 2}
+    - target: {fileID: 1555814120586544820, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5932811503762062064, guid: abc909e2766aaf5409b99a5a9b443e3a, type: 2}
+    - target: {fileID: 1555814120586544820, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603674405344032134, guid: 1c0afa2932e1fe74794a3806ce55f8bc, type: 3}
       propertyPath: m_LocalPosition.x

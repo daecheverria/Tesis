@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">589645983082</string>
+  <string name="google_storage_bucket" translatable="false">laboratoriotesis2025.firebasestorage.app</string>
+  <string name="project_id" translatable="false">laboratoriotesis2025</string>
+  <string name="google_api_key" translatable="false">AIzaSyAFSxE85nvMY_TPE57lx9KS3HKMn-oHNag</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAFSxE85nvMY_TPE57lx9KS3HKMn-oHNag</string>
+  <string name="google_app_id" translatable="false">1:589645983082:android:5de7ed9c718d04d69ec913</string>
+</resources>

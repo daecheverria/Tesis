@@ -52,8 +52,6 @@ public class CambioEscena : MonoBehaviour
 
     public void CambiarScenaPorFuncion()
     {
-        // Cargar la scena numero 4
-        SceneManager.LoadScene(4);
-
+        SceneManager.LoadScene("EntornoTridimensional");
     }
 }

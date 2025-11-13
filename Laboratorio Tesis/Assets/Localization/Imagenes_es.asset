@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97269afb30aa84742ae3f3342603618a, type: 3}
+  m_Name: Imagenes_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: a73d5e55b1e8b9641abccd972c5e8cd4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 8560029696
+    m_Localized: '1159bbbc390c80f4c9db2f055075c690[ControlManual]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1178586296320
+    m_Localized: '13589a7fca13bff4ab4ff9513018acab[PeriodoOscilacion]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1198534406144
+    m_Localized: '8685e0b39709ad24f8e4bb51ab9c85dd[LeyHook]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1331590311936
+    m_Localized: 009b65361b66935458bddc0e80692daf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1345163079680
+    m_Localized: 232affea7925a7f42a3d5ca34294507e
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Text.RegularExpressions;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UserRegister : MonoBehaviour
 {
@@ -53,7 +54,6 @@ public class UserRegister : MonoBehaviour
     public void CapturarNombre()
     {
         print("Nombre capturado: " + _nombre.text);
-        ValidarTodo();
     }
 
 
@@ -61,13 +61,11 @@ public class UserRegister : MonoBehaviour
     {
         print("Correo Unimet capturado: " + _correoUnimet.text);
         _correoUnimet.text = _correoUnimet.text.ToLower();
-        ValidarTodo();
     }
 
     public void CapturarCedula()
     {
         print("Cedula capturada: " + _cedula.text);
-        ValidarTodo();
     }
 
     public bool EsCorreoValidoUnimet(string valor)
@@ -160,32 +158,15 @@ public class UserRegister : MonoBehaviour
         return true;
     }
 
-    public void ValidarTodo()
+    public void CambioEscena2()
     {
 
-        verificadorNombre = EsNombreValido(_nombre.text);
-        if (verificadorNombre)
-        {
-            PlayerPrefs.SetString("name", _nombre.text);
-            if (datosSO != null) datosSO.nombre = _nombre.text;
-        }
-
-        verificadorCorreo = EsCorreoValidoUnimet(_correoUnimet.text);
-        if (verificadorCorreo)
-        {
+        datosSO.Reiniciar();
+        if (datosSO != null) datosSO.nombre = _nombre.text;
             _correoUnimet.text = _correoUnimet.text.ToLower();
-            PlayerPrefs.SetString("email", _correoUnimet.text);
             if (datosSO != null) datosSO.correo = _correoUnimet.text;
-        }
-
-        verificadorCedula = EsCedulaValida(_cedula.text);
-        if (verificadorCedula)
-        {
-            PlayerPrefs.SetString("cedula", _cedula.text);
             if (datosSO != null) datosSO.cedula = _cedula.text;
-        }
 
-        // Guardado y botón
-        PlayerPrefs.Save();
+        SceneManager.LoadScene("Laboratory Scene");
     }
 }

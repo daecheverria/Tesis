@@ -31,6 +31,84 @@ MonoBehaviour:
     m_Localized: REGISTRARSE
     m_Metadata:
       m_Items: []
+  - m_Id: 982613551984640
+    m_Localized: Laboratorio de Fisica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 982640840126464
+    m_Localized: El campo no debe tener caracteres especiales
+    m_Metadata:
+      m_Items: []
+  - m_Id: 982649740439552
+    m_Localized: Nombre y Apellido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 982661291552768
+    m_Localized: Cedula
+    m_Metadata:
+      m_Items: []
+  - m_Id: 983359005634560
+    m_Localized: Correo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 983560277700608
+    m_Localized: INGRESAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 983385169702912
+    m_Localized: Debe ser correo @correo.unimet.edu.ve o @unimet.edu.ve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989934671867904
+    m_Localized: Enviar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989967647485952
+    m_Localized: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990465804972032
+    m_Localized: Inicial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990444653096960
+    m_Localized: Estiramientos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990491264397312
+    m_Localized: "Tiempos Oscilaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991878299758592
+    m_Localized: Instrucciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991914223972352
+    m_Localized: "Controles B\xE1sicos\n\nAgarrar/Soltar: Usa el bot\xF3n de agarre
+      (Grip) para tomar las pesas de la bandeja.\n\nColocar/Quitar Pesa:\n\nColocar:
+      Acerca la pesa al gancho del resorte y suelta el agarre.\n\nQuitar: Vuelve
+      a agarrar la pesa y presiona el gatillo (Trigger) para liberarla del gancho.\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991923023622144
+    m_Localized: "Experimento 1: \r\n\r\nEl objetivo es medir cu\xE1nto tarda el
+      resorte en completar 20 oscilaciones con cada masa.\r\n\r\n1.Agarra la primera
+      pesa (ej. 5g) de la bandeja y col\xF3cala en el gancho del resorte.\r\n\r\n2.Deja
+      que la pesa se estabilice (quede quieta) y mide con la regla la longitud que
+      marca el resorte.\r\n\r\n3.Estira la pesa verticalmente una peque\xF1a distancia
+      y su\xE9ltala con cuidado para que comience a oscilar.\r\n\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991932012015616
+    m_Localized: "4. Usando un cron\xF3metro, mide el tiempo que tarda el sistema
+      en completar 20 oscilaciones completas.\n\n5. Anota ese tiempo en la casilla
+      correspondiente de la tabla de tiempos.\n\n6. Quita la pesa del resorte (agarra
+      y presiona trigger).\n\n7. Repite los pasos 1 al 6 para todas las masas indicadas
+      en la tabla.\n\n8. Una vez que hayas llenado todas las casillas de ambas tablas,
+      presiona el bot\xF3n \"Enviar\" para registrar tus resultados.\n\n9. Si necesitas
+      comenzar de nuevo, usa el bot\xF3n \"Reiniciar\".\n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

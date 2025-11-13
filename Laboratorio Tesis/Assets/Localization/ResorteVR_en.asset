@@ -31,6 +31,137 @@ MonoBehaviour:
     m_Localized: REGISTER
     m_Metadata:
       m_Items: []
+  - m_Id: 982613551984640
+    m_Localized: Physics Laboratory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 982640840126464
+    m_Localized: The field must not contain special characters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 982649740439552
+    m_Localized: Name and Surname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 982661291552768
+    m_Localized: ID
+    m_Metadata:
+      m_Items: []
+  - m_Id: 983359005634560
+    m_Localized: Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 983385169702912
+    m_Localized: It must be an email address @correo.unimet.edu.ve or @unimet.edu.ve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 983560277700608
+    m_Localized: ENTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989934671867904
+    m_Localized: Send
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989967647485952
+    m_Localized: Reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990465804972032
+    m_Localized: Initial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990444653096960
+    m_Localized: Stretches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990491264397312
+    m_Localized: Oscillation Times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991878299758592
+    m_Localized: Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991914223972352
+    m_Localized: 'Basic Controls
+
+      
+
+      Grip/Release: Use the grip button
+      to pick up weights from the tray.
+
+      
+
+      Place/Remove Weight:
+
+      
+
+      Place:
+      Bring the weight close to the spring hook and release the grip.
+
+      
+
+      Remove:
+      Re-grasp the weight and press the trigger to release it from the hook.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991923023622144
+    m_Localized: 'Experiment 1:
+
+      
+
+      The objective is to measure how
+      long it takes the spring to complete 20 oscillations with each mass.
+
+      
+
+      1.
+      Take the first weight (e.g., 5g) from the tray and place it on the spring''s
+      hook.
+
+      
+
+      2. Let the weight stabilize (become still) and measure
+      the length indicated by the spring with the ruler.
+
+      
+
+      3. Stretch
+      the weight vertically a short distance and carefully release it so that it
+      begins to oscillate.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 991932012015616
+    m_Localized: '4. Using a stopwatch, measure the time it takes the system to complete
+      20 full oscillations.
+
+      
+
+      5. Record that time in the corresponding
+      cell of the time table.
+
+      
+
+      6. Remove the weight from the spring
+      (grasp and press trigger).
+
+      
+
+      7. Repeat steps 1 through 6 for
+      all the masses listed in the table.
+
+      
+
+      8. Once you have filled
+      in all the cells of both tables, press the "Submit" button to record your results.
+
+      
+
+      9.
+      If you need to start over, use the "Reload" button.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

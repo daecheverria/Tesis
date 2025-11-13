@@ -13,4 +13,17 @@ public class DatosSO2: ScriptableObject
     [SerializeField] public float k;
     [SerializeField] public List<float> tiemposTeoricos;
     [SerializeField] public List<float> estiramientosTeoricos;
+
+    public void Reiniciar()
+    {
+        for (int i = 0; i < tiempos.Count; i++)
+        {
+            tiempos[i] = 0f;
+        }
+        for (int i = 0; i < estiramientos.Count; i++)
+        {
+            estiramientos[i] = 0f;
+        }
+    }
+
 }

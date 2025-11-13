@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a73d5e55b1e8b9641abccd972c5e8cd4
+    m_Address: Assets/Localization/Imagenes Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 79be1bc2b78dc9440be92cb955058f08, type: 2}
   m_SchemaSet:

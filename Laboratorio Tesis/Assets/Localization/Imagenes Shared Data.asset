@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Imagenes Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Imagenes
+  m_TableCollectionNameGuidString: a73d5e55b1e8b9641abccd972c5e8cd4
+  m_Entries:
+  - m_Id: 8560029696
+    m_Key: Controles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1178586296320
+    m_Key: Ecuacion1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1198534406144
+    m_Key: Ecuacion2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1331590311936
+    m_Key: Ecuacion3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1345163079680
+    m_Key: Ecuacion4
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items:
+    - rid: 3389460403420135546
+    - rid: 3389460403420135551
+  m_KeyGenerator:
+    rid: 3389460403420135545
+  references:
+    version: 2
+    RefIds:
+    - rid: 3389460403420135545
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1763041813274
+    - rid: 3389460403420135546
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 8560029696
+          m_TableCodes:
+          - es
+          - en
+        - m_KeyId: 1178586296320
+          m_TableCodes:
+          - es
+          - en
+        - m_KeyId: 1198534406144
+          m_TableCodes:
+          - es
+          - en
+        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 3389460403420135551
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 1331590311936
+          m_TableCodes:
+          - es
+          - en
+        - m_KeyId: 1345163079680
+          m_TableCodes:
+          - es
+          - en
+        m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null

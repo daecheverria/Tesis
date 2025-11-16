@@ -86,21 +86,21 @@ MonoBehaviour:
   - m_Id: 991914223972352
     m_Localized: 'Basic Controls
 
-      
 
-      Grip/Release: Use the grip button
-      to pick up weights from the tray.
 
-      
+      Grip/Release: Use the grip button to pick
+      up weights from the tray.
+
+
 
       Place/Remove Weight:
 
-      
 
-      Place:
-      Bring the weight close to the spring hook and release the grip.
 
-      
+      Place: Bring
+      the weight close to the spring hook and release the grip.
+
+
 
       Remove:
       Re-grasp the weight and press the trigger to release it from the hook.'
@@ -109,57 +109,64 @@ MonoBehaviour:
   - m_Id: 991923023622144
     m_Localized: 'Experiment 1:
 
-      
 
-      The objective is to measure how
-      long it takes the spring to complete 20 oscillations with each mass.
 
-      
+      The objective is to measure how long it
+      takes the spring to complete 20 oscillations with each mass.
 
-      1.
-      Take the first weight (e.g., 5g) from the tray and place it on the spring''s
-      hook.
 
-      
 
-      2. Let the weight stabilize (become still) and measure
-      the length indicated by the spring with the ruler.
+      1. Take
+      the first weight (e.g., 5g) from the tray and place it on the spring''s hook.
 
-      
 
-      3. Stretch
-      the weight vertically a short distance and carefully release it so that it
-      begins to oscillate.'
+
+      2.
+      Let the weight stabilize (become still) and measure the length indicated by
+      the spring with the ruler.
+
+
+
+      3. Stretch the weight vertically a short
+      distance and carefully release it so that it begins to oscillate.'
     m_Metadata:
       m_Items: []
   - m_Id: 991932012015616
     m_Localized: '4. Using a stopwatch, measure the time it takes the system to complete
       20 full oscillations.
 
-      
 
-      5. Record that time in the corresponding
-      cell of the time table.
 
-      
+      5. Record that time in the corresponding cell
+      of the time table.
 
-      6. Remove the weight from the spring
-      (grasp and press trigger).
 
-      
 
-      7. Repeat steps 1 through 6 for
-      all the masses listed in the table.
+      6. Remove the weight from the spring (grasp and
+      press trigger).
 
-      
 
-      8. Once you have filled
-      in all the cells of both tables, press the "Submit" button to record your results.
 
-      
+      7. Repeat steps 1 through 6 for all the masses listed
+      in the table.
 
-      9.
-      If you need to start over, use the "Reload" button.'
+
+
+      8. Once you have filled in all the cells of both tables,
+      press the "Submit" button to record your results.
+
+
+
+      9. If you need to
+      start over, use the "Reload" button.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1899181757542400
+    m_Localized: Virtual Reality Thesis Interaction Environment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1899166452527104
+    m_Localized: ENTER
     m_Metadata:
       m_Items: []
   references:

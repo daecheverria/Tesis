@@ -67,11 +67,16 @@ public class Resorte : MonoBehaviour
         springJoint.anchor = Vector3.zero;
         springJoint.connectedAnchor = Vector3.zero;
         springJoint.enableCollision = true;
-
+        springJoint.tolerance = 0.0f;
         springJoint.minDistance = minLength;
         springJoint.maxDistance = maxLength;
 
         if (datosSO != null) datosSO.k = springConstant;
+        float m = endRb.GetComponent<ManejadorPesas>().initialMass;
+        float g = Mathf.Abs(Physics.gravity.y);
+        float estiramientoTeorico = m * g / springConstant;
+        datosSO.estiramientosTeoricos[9] = estiramientoTeorico; // índice 9 reservado para 0g
+        // Debug.LogWarning($"Resorte: m={m:F4} kg | k={springConstant:F4} N/m | g={g:F2} m/s^2 | estiramientoTeorico={estiramientoTeorico:F4} m");
     }
 
     void FixedUpdate()
@@ -98,7 +103,7 @@ public class Resorte : MonoBehaviour
             {
                 if (logWhenSettled)
                 {
-                    Debug.Log($"Resorte (ASENTADO): distancia={distancia:F4} m | teorico x=mg/k={estiramientoTeorico:F4} m | diff={diff:F4} m | m={m:F4} kg k={k:F4} N/m g={g:F2} m/s^2 | vel={endRb.linearVelocity.magnitude:F4} m/s");
+                    Debug.Log($"Resorte (ASENTADO): distancia={distancia:F10} m | teorico x=mg/k={estiramientoTeorico:F10} m | diff={diff:F10} m | m={m:F4} kg k={k:F4} N/m g={g:F2} m/s^2 | vel={endRb.linearVelocity.magnitude:F4} m/s");
                 }
             }
         }

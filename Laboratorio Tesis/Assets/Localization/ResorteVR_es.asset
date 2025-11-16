@@ -109,6 +109,14 @@ MonoBehaviour:
       comenzar de nuevo, usa el bot\xF3n \"Reiniciar\".\n"
     m_Metadata:
       m_Items: []
+  - m_Id: 1899181757542400
+    m_Localized: "Entorno de Interacci\xF3n con las Tesis de Realidad Virtual"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1899166452527104
+    m_Localized: INGRESAR
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

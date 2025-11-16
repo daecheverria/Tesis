@@ -12,7 +12,7 @@ public class ManejadorPesas : MonoBehaviour
     private XRSocketInteractor socket;
     public SpringJoint springJoint;
     public Rigidbody selfRb;
-    private float initialMass;
+    public float initialMass;
     public bool pesaColgada = false;
     public DatosSO2 datosSO2; // referencia al ScriptableObject donde guardar teóricos
     public Resorte resorte;
@@ -56,11 +56,6 @@ public class ManejadorPesas : MonoBehaviour
 
         SetupLineRenderer();
 
-        //if (springJoint != null)
-        //{
-        //    springJoint.connectedBody = selfRb;
-        //    springJoint.maxDistance = 5f;
-        //}
     }
      private void SetupLineRenderer()
     {
@@ -118,7 +113,12 @@ public class ManejadorPesas : MonoBehaviour
                 contadorOscilaciones++;
                 if (contadorOscilaciones > objetivoOscilaciones)
                 {
-                    Debug.Log($"Tiempo para {objetivoOscilaciones} oscilaciones (descartando la primera): {sumaTiemposOscilaciones:F4} segundos");
+                    float promedioTiemposOscilaciones = sumaTiemposOscilaciones / objetivoOscilaciones;
+                    float tiempoTeorico = 2f * Mathf.PI * Mathf.Sqrt(selfRb.mass / resorte.springConstant);
+                    float dif = Mathf.Abs(promedioTiemposOscilaciones - tiempoTeorico);
+                    float k = resorte.springConstant;
+                    float m = selfRb.mass;
+                    Debug.LogWarning($"Promedio {promedioTiemposOscilaciones:F10} s | teorico {tiempoTeorico:F10} s | dif {dif:F10} s | k={k:F4} N/m | m={m:F4} kg");
                     midiendo = false;
                     //ExportarCSV();
                 }
@@ -138,38 +138,30 @@ public class ManejadorPesas : MonoBehaviour
         asegurar.Asegurar(pesaCol);
 
         // --- CÁLCULO TEÓRICO Y MAPEO ---
-        // Mapear masa de la pesa (kg) a índice según múltiplos de 5 g:
-        // 5g -> índice 0, 10g -> 1, 15g -> 2, ... (se admite hasta 50g por defecto)
         if (datosSO2 != null)
         {
             float k = resorte.springConstant;
             float m = selfRb.mass; // masa usada en el sistema (kg)
             if (k > 0f && m > 0f)
             {
-                // gravedad positiva
                 float g = Mathf.Abs(Physics.gravity.y);
 
-                // calcular periodo teórico T = 2π * sqrt(m / k)
-                // (nota: la fórmula correcta del periodo para masa-resorte es T = 2π sqrt(m/k))
                 float periodoTeorico = 2f * Mathf.PI * Mathf.Sqrt(m / k);
-
-                // estiramiento teórico x = m * g / k
                 float estiramientoTeorico = m * g / k;
 
-                // convertir masa de la pesa (no selfRb) a gramos y redondear al múltiplo de 5 más cercano
                 int grams = Mathf.RoundToInt(pesaRigidbody.mass * 1000f);
-                int rounded = Mathf.Clamp(Mathf.RoundToInt(grams / 5f) * 5, 5, 50); // 5..50
-                int index = (rounded / 5) - 1; // 5->0, 10->1, ..., 50->9
+                int rounded = Mathf.Clamp(Mathf.RoundToInt(grams / 5f) * 5, 5, 45); // 5..45
+                int index = (rounded / 5) - 1; // 5->0, 10->1, ..., 45->8
 
-                // Asegurar tamaño de listas en datosSO2
+                // Asegurar tamaño de listas en datosSO2 para el índice calculado
                 EnsureListSize(datosSO2.tiemposTeoricos, index + 1, 0f);
                 EnsureListSize(datosSO2.estiramientosTeoricos, index + 1, 0f);
 
+                // AÑADIDO: asegurar que exista el elemento en índice 9 (0g) sin tocar los existentes
+                EnsureListSize(datosSO2.estiramientosTeoricos, 10, 0f);
+
                 datosSO2.tiemposTeoricos[index] = periodoTeorico;
                 datosSO2.estiramientosTeoricos[index] = estiramientoTeorico;
-
-                // Debug.Log($"ManejadorPesas: masa pesa={pesaRigidbody.mass}kg ({grams}g) -> rounded {rounded}g -> index {index}");
-                // Debug.Log($"ManejadorPesas: periodoTeorico={periodoTeorico:F4}s, estiramientoTeorico={estiramientoTeorico:F4}m guardados en DatosSO2");
             }
             else
             {
@@ -184,7 +176,7 @@ public class ManejadorPesas : MonoBehaviour
         sumaTiemposOscilaciones = 0f;
         ultimaPosicionY = selfRb.transform.position.y;
         bajando = false;
-        // midiendo = true;
+        midiendo = true;
         posicionesY.Clear();
         tiemposOscilacion.Clear();
         // Debug.Log($"Iniciando medición de {objetivoOscilaciones} oscilaciones...");

@@ -87,44 +87,36 @@ MonoBehaviour:
     m_Localized: 'Basic Controls
 
 
-
       Grip/Release: Use the grip button to pick
       up weights from the tray.
 
 
-
       Place/Remove Weight:
-
 
 
       Place: Bring
       the weight close to the spring hook and release the grip.
 
 
-
-      Remove:
-      Re-grasp the weight and press the trigger to release it from the hook.'
+      Remove: Re-grasp
+      the weight and press the trigger to release it from the hook.'
     m_Metadata:
       m_Items: []
   - m_Id: 991923023622144
     m_Localized: 'Experiment 1:
 
 
-
-      The objective is to measure how long it
-      takes the spring to complete 20 oscillations with each mass.
-
+      The objective is to measure how long it takes
+      the spring to complete 20 oscillations with each mass.
 
 
-      1. Take
-      the first weight (e.g., 5g) from the tray and place it on the spring''s hook.
-
+      1. Take the
+      first weight (e.g., 5g) from the tray and place it on the spring''s hook.
 
 
       2.
       Let the weight stabilize (become still) and measure the length indicated by
       the spring with the ruler.
-
 
 
       3. Stretch the weight vertically a short
@@ -136,25 +128,20 @@ MonoBehaviour:
       20 full oscillations.
 
 
-
       5. Record that time in the corresponding cell
       of the time table.
-
 
 
       6. Remove the weight from the spring (grasp and
       press trigger).
 
 
-
       7. Repeat steps 1 through 6 for all the masses listed
       in the table.
 
 
-
       8. Once you have filled in all the cells of both tables,
       press the "Submit" button to record your results.
-
 
 
       9. If you need to

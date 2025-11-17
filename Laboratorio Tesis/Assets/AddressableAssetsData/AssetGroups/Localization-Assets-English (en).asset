@@ -15,8 +15,32 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-English (en)
   m_GUID: 2a28475d1631833449c7f8f3e38d84dd
   m_SerializeEntries:
-  - m_GUID: d55b42f62d33bb34e97c919397a6e3ce
-    m_Address: Flag_of_the_United_States.svg
+  - m_GUID: 2d36cd6ac8fa4c3419546cecc85ef420
+    m_Address: 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36636bf8f54a8e24b8b2c48efdd4fa14
+    m_Address: controls
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dd05009fa4beb44d9573bedf3dda4c9
+    m_Address: 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b52f689c7b1f0f143b4fb500837adf30
+    m_Address: 4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd94228fbda2b8247bc5fd371741328e
+    m_Address: 5
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

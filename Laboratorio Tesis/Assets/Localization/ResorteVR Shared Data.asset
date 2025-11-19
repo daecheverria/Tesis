@@ -99,6 +99,14 @@ MonoBehaviour:
     m_Key: T2
     m_Metadata:
       m_Items: []
+  - m_Id: 3244691255963648
+    m_Key: Gem1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3245630419349504
+    m_Key: Gem2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

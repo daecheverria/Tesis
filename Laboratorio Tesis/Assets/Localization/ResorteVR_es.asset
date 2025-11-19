@@ -117,6 +117,15 @@ MonoBehaviour:
     m_Localized: INGRESAR
     m_Metadata:
       m_Items: []
+  - m_Id: 3244691255963648
+    m_Localized: "\xA1Escriba su pregunta a nuestro asistente inteligente especialista
+      en f\xEDsica!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3245630419349504
+    m_Localized: Preguntar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

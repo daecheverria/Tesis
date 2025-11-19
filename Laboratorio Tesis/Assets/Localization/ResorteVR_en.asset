@@ -156,6 +156,14 @@ MonoBehaviour:
     m_Localized: ENTER
     m_Metadata:
       m_Items: []
+  - m_Id: 3244691255963648
+    m_Localized: Please write your question for our smart physics specialist assistant!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3245630419349504
+    m_Localized: Ask
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

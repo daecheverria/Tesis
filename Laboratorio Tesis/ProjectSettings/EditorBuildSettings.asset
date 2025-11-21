@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Augusto/MenuPrincipal.unity
+    guid: 1f25d559f1df6dd4a9ac5d1781f70d38
+  - enabled: 1
+    path: Assets/Scenes/EntornoTridimensional.unity
+    guid: 7aa6795694a6a7f46866abb845528ef5
+  - enabled: 1
     path: Assets/Scenes/Laboratory Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/UInteraction.unity
     guid: 06c7c4f3fb3cf184b9fd79778fa9b9c6
-  - enabled: 1
-    path: Assets/Scenes/EntornoTridimensional.unity
-    guid: 7aa6795694a6a7f46866abb845528ef5
   - enabled: 1
     path: Assets/Scenes/Augusto/PantallaMenu.unity
     guid: 26db316e1b5e68747b8ddf5b9d810552

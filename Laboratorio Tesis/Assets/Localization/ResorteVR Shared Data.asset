@@ -107,6 +107,10 @@ MonoBehaviour:
     m_Key: Gem2
     m_Metadata:
       m_Items: []
+  - m_Id: 3906888839704576
+    m_Key: Idioma
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

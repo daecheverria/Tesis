@@ -15,11 +15,6 @@ public class UserRegister : MonoBehaviour
     [SerializeField] private TMP_InputField _correoUnimet;
     [SerializeField] private TMP_InputField _cedula;
 
-    [Header("Panel de errores")]
-    [SerializeField] private GameObject errorCorreoUnimet;
-    [SerializeField] private GameObject errorGeneral;
-
-
     private static readonly Regex caracteresPermitidos = new Regex("^[a-zA-ZÒ—0-9 .,!?]+$");
     private static readonly Regex acentosPermitidos = new Regex("^[a-zA-ZÒ—·ÈÌÛ˙¡…Õ”⁄ ]+$");
     private static readonly Regex emailLocalRegex = new Regex("^[A-Za-z0-9._%+-]+$");
@@ -73,7 +68,6 @@ public class UserRegister : MonoBehaviour
         // Normalizar
         if (string.IsNullOrWhiteSpace(valor))
         {
-            errorCorreoUnimet.SetActive(true);
             return false;
         }
 
@@ -83,25 +77,21 @@ public class UserRegister : MonoBehaviour
         int atIndex = correo.LastIndexOf('@');
         if (atIndex <= 0 || atIndex >= correo.Length - 1)
         {
-            errorCorreoUnimet.SetActive(true);
             return false;
         }
 
         string dominio = correo.Substring(atIndex);
         if (dominio != "@correo.unimet.edu.ve" && dominio != "@unimet.edu.ve")
         {
-            errorCorreoUnimet.SetActive(true);
             return false;
         }
 
         string parteLocal = correo.Substring(0, atIndex);
         if (!emailLocalRegex.IsMatch(parteLocal))
         {
-            errorCorreoUnimet.SetActive(true);
             return false;
         }
 
-        errorCorreoUnimet.SetActive(false);
         return true;
     }
 
@@ -109,10 +99,9 @@ public class UserRegister : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(valor) || !caracteresPermitidos.IsMatch(valor))
         {
-            errorGeneral.SetActive(true);
             return false;
         }
-        errorGeneral.SetActive(false);
+
         return true;
     }
 
@@ -120,10 +109,8 @@ public class UserRegister : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(valor) || (!acentosPermitidos.IsMatch(valor) && !acentosPermitidos.IsMatch(valor)))
         {
-            errorGeneral.SetActive(true);
             return false;
         }
-        errorGeneral.SetActive(false);
         return true;
     }
 
@@ -131,10 +118,8 @@ public class UserRegister : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(valor) || (!acentosPermitidos.IsMatch(valor) && !acentosPermitidos.IsMatch(valor)))
         {
-            errorGeneral.SetActive(true);
             return false;
         }
-        errorGeneral.SetActive(false);
         return true;
     }
 

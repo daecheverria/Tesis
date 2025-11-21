@@ -50,10 +50,10 @@ public class CambioEscena : MonoBehaviour
         Debug.Log($"CambioEscena: cargando escena '{escenaObjetivo}' (trigger por '{other.name}').");
     }
 
-    public void CambiarScenaPorFuncion()
+    public void CambiarScenaPorFuncion(string nombreEscena)
     {
         // Cargar la scena numero 4
-        SceneManager.LoadScene("Laboratory Scene");
+        SceneManager.LoadScene(nombreEscena);
 
     }
 }

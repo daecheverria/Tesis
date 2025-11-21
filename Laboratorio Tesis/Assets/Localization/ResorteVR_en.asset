@@ -19,12 +19,12 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 181585457152
-    m_Localized: SIMULATION THESIS REPOSITORY
+    m_Localized: HELICAL SPRING LABORATORY PRACTICE
     m_Metadata:
       m_Items: []
   - m_Id: 530216005632
-    m_Localized: Welcome to the UNIMET Virtual Reality thesis repository environment.
-      To begin, you must register.
+    m_Localized: Welcome to the virtual reality physics laboratory practical environment!
+      To perform the spring practical, please register.
     m_Metadata:
       m_Items: []
   - m_Id: 605474402304
@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 982613551984640
-    m_Localized: Physics Laboratory
+    m_Localized: "Physics Laboratory \nHelical Spring"
     m_Metadata:
       m_Items: []
   - m_Id: 982640840126464
@@ -162,6 +162,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3245630419349504
     m_Localized: Ask
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3906888839704576
+    m_Localized: Select Language
     m_Metadata:
       m_Items: []
   references:
